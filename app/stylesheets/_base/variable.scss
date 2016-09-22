@@ -1,0 +1,43 @@
+$color-main: #E95787;
+$color-font: #000;
+$color-tip-font: #CCC;
+$color-font-sec: #333;
+$color-font-sub: #666;
+$color-font-third: #999;
+$color-bg: #F9F9F9;
+
+$color-gradient1-top: #E13180;
+$color-gradient1-bottom: #F2712C;
+
+$color-gradient2-top: #0AA7DD;
+$color-gradient2-bottom: #179371;
+
+$color-gradient3-top: #AA1AE4;
+$color-gradient3-bottom: #F51C85;
+
+$color-gradient-daily-top: #E13180;
+$color-gradient-daily-bottom: #F2712C;
+
+$color-gradient-plan-top: #AA1AE4;
+$color-gradient-plan-bottom: #5671EB;
+
+
+$color-plan: #A917E3;
+$color-daily: #E95787;
+$color-add: #E7B90C;
+
+$color-type-working: #4DA0E6;
+$color-type-family: #FDAE40;
+$color-type-record: #E23B7A;
+$color-type-plan: #A81CE4;
+$color-type-health: #22C464;
+$color-type-shopping: #F5F013;
+
+
+
+$icon-font: iconfont;
+
+@font-face {
+  font-family: 'iconfont';
+  src: url("../fonts/iconfont.eot?#iefix") format('embedded-opentype'), url("../fonts/iconfont.woff") format('woff'), url("../fonts/iconfont.ttf") format('truetype'), url("../fonts/iconfont.svg#iconfont") format('svg') /* iOS 4.1- */
+}

@@ -1,0 +1,23 @@
+.icon{
+  font-family: $icon-font;
+}
+
+.icon-mood:before{
+  content: '\e60f';
+}
+
+.icon-plan:before{
+  content: '\e601';
+}
+
+.icon-daily:before{
+  content: '\e605';
+}
+
+.icon-add:before{
+  content: '\e604';
+}
+
+.icon-love:before{
+  content: '\e60a';
+}

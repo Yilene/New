@@ -1,0 +1,7 @@
+{
+  "name": "new",
+  "dependencies": {
+    "magnific-popup": "^1.0.0",
+    "toastr": "^2.1.1"
+  }
+}

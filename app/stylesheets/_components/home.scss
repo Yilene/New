@@ -1,0 +1,75 @@
+.home{
+  padding: 6.5rem 0 0;
+  .date{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 100;
+  }
+  .greet{
+    margin-top: 4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 100;
+  }
+  .mood{
+    margin-top: 6rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 100;
+    .mood-des{
+      margin-top: 3rem;
+      .icon{
+        padding: 0 0.5rem;
+        font-size: 4rem;
+        font-weight: lighter;
+      }
+    }
+  }
+  .interact{
+    text-align: center;
+    .add{
+      display: inline-block;
+      display: none;
+      margin: 9rem auto;
+      padding: 14px 50px;
+      border: 1px solid #fff;
+      border-radius: 6px;
+      font-size: 1.4rem;
+      font-weight: 200;
+    }
+    .list{
+      margin-top: 5rem;
+      ul{
+        padding: 0 5rem;
+        li{
+          line-height: 4.8rem;
+          border-bottom: 1px solid rgba(255,255,255,0.5);
+          font-size: 1.3rem;
+          font-weight: 100;
+        }
+      }
+    }
+    .record{
+      display: none;
+    }
+    .more{
+      margin-top: 3.2rem;
+      font-size: 1.3rem;
+      font-weight: 100;
+      &:after{
+        position: relative;
+        content: ' ';
+        display: block;
+        transform: rotate(150deg) skew(30deg);
+        margin: 8px auto;
+        left: -4px;
+        width: 12px;
+        height: 10px;
+        border-width: 1px 1px 0 0;
+        border-style: solid;
+        border-color: #fff;
+      }
+    }
+  }
+}
