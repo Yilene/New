@@ -1,5 +1,4 @@
 import React from 'react';
-import TodoList from './partial/TodoList'
 
 class Todo extends React.Component {
     render() {
@@ -11,20 +10,7 @@ class Todo extends React.Component {
                     <h1>Sep 06, 2016</h1>
                 </header>
                 <div className="content">
-                    <div className="box">
-                        <TodoList />
-                        <div className="record">
-                            <div className="mood-record">
-                                <span className="icon icon-love"> </span>
-                                <span className="icon icon-love"> </span>
-                                <span className="icon icon-love"> </span>
-                                <span className="mood-des">A exciting day!</span>
-                            </div>
-                            <p>
-                                Dear me, It's a great day,just be ready to go to the concert next Saturday,so exciting!
-                            </p>
-                        </div>
-                    </div>
+                    {this.props.children}
                 </div>
             </div>
         );

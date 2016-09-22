@@ -1,7 +1,7 @@
 import React from 'react';
 import PlanItem from './PlanItem';
 
-class PlanList extends React.Component{
+class PlanUl extends React.Component{
     render() {
         return (
             <div className="list">
@@ -12,4 +12,4 @@ class PlanList extends React.Component{
     }
 }
 
-export default PlanList;
+export default PlanUl;

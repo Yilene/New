@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem'
 
-class TodoList extends React.Component{
+class PlanUl extends React.Component{
     render() {
         return (
             <div className="list">
@@ -11,4 +11,4 @@ class TodoList extends React.Component{
         )
     };
 }
-export default TodoList;
+export default PlanUl;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PlanList from './partial/PlanList';
 
 class Plan extends React.Component {
     render() {
@@ -10,9 +9,7 @@ class Plan extends React.Component {
                     <a className="bar-link"><span className="icon icon-add"> </span></a>
                     <h1>Planing</h1>
                 </header>
-                <div className="box">
-                    <PlanList />
-                </div>
+                {this.props.children}
             </div>
         );
     }
