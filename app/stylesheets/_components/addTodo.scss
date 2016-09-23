@@ -1,0 +1,58 @@
+.add{
+  height: 100%;
+  margin-top: 5.6rem;
+  padding: 2rem 3rem;
+  background-color: #fff;
+  overflow: auto;
+  .edit-box{
+    margin-top: 2rem;
+    border-bottom: 1px solid $color-border;
+  }
+  .submit{
+    display: block;
+    width: 4.2rem;
+    height: 4.2rem;
+    line-height: 4.2rem;
+    margin: 5rem auto 0;
+    border: 1px solid $color-border;
+    border-radius: 50%;
+    text-align: center;
+    .icon{
+      font-size: 1.8rem;
+      color: $color-border;
+    }
+  }
+}
+
+.todo-type{
+  margin: 4rem auto;
+  height: 4.8rem;
+  .type-des{
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    color: $color-font-third;
+  }
+  .type-item{
+    display: inline-block;
+    width: 3rem;
+    height: 2.4rem;
+    vertical-align: bottom;
+    &.work{
+      height: 4.8rem;
+      background-color: $color-type-working;
+    }
+    &.family{
+      background-color: $color-type-family;
+    }
+    &.health{
+      background-color: $color-type-health;
+    }
+    &.shopping{
+      background-color: $color-type-shopping;
+    }
+    &.others{
+      background-color: $color-type-others;
+    }
+  }
+}
+

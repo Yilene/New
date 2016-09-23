@@ -1,0 +1,25 @@
+.add{
+  .mood{
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 200;
+    .mood-des{
+      margin-top: 2rem;
+      .icon{
+        padding: 0 0.5rem;
+        font-size: 3rem;
+        font-weight: normal;
+        color: $color-main;
+      }
+    }
+  }
+}
+.form{
+  .edit-box{
+    margin-top: 4rem;
+    padding: 0.6rem;
+    line-height: 2rem;
+    font-size: 1.3rem;
+  }
+}

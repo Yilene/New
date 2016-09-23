@@ -7,6 +7,10 @@ class PlanUl extends React.Component{
             <div className="list">
                 <PlanItem />
                 <PlanItem />
+                <PlanItem />
+                <PlanItem />
+                <PlanItem />
+                <PlanItem />
             </div>
         );
     }

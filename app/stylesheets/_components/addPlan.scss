@@ -1,0 +1,104 @@
+.form-plan{
+  time{
+    color: $color-font-third;
+  }
+  .plan-des{
+    margin: 1rem 0 3rem;
+    font-size: 1.4rem;
+  }
+  .tip{
+    font-weight: 200;
+    color: $color-font-third;
+  }
+}
+.progress{
+  margin-top: 1.8rem;
+  .rangeInput{
+    display: block;
+    width: 100%;
+    height: 0.5rem;
+    margin: 1rem 0;
+    -webkit-appearance: none;
+    background-color: $color-border;
+  }
+}
+
+.add{
+  .process{
+    @include process(4rem);
+  }
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  background: $color-border;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 50%;
+  background-color: $color-plan;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.5rem;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  background: $color-border;
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 50%;
+  background-color: $color-plan;
+  cursor: pointer;
+  -moz-appearance: none;
+  margin-top: -0.5rem;
+  border: none;
+}
+
+input[type=range]:focus::-moz-range-thumb{
+  outline: none;
+}
+
+input[type=range]::-moz-range-progress {
+  background: $color-plan;
+  height: 0.5rem;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  background: $color-border;
+}
+
+input[type=range]::-ms-thumb {
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 50%;
+  background-color: $color-plan;
+  cursor: pointer;
+  margin-top: -0.5rem;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: $color-plan;
+  height: 0.5rem;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: $color-plan;
+}
+

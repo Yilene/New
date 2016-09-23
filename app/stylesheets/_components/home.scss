@@ -1,5 +1,9 @@
 .home{
+  height: 100%;
+  box-sizing: border-box;
   padding: 6.5rem 0 0;
+  color: #fff;
+  background-image: linear-gradient(to bottom, $color-gradient1-top, $color-gradient1-bottom);
   .date{
     text-align: center;
     font-size: 3rem;

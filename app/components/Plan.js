@@ -9,7 +9,9 @@ class Plan extends React.Component {
                     <a className="bar-link"><span className="icon icon-add"> </span></a>
                     <h1>Planing</h1>
                 </header>
-                {this.props.children}
+                <div className="content">
+                    {this.props.children}
+                </div>
             </div>
         );
     }

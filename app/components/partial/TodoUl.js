@@ -7,6 +7,11 @@ class PlanUl extends React.Component{
             <div className="list">
                 <TodoItem />
                 <TodoItem />
+                <TodoItem />
+                <TodoItem />
+                <TodoItem />
+                <TodoItem />
+                <div className="tip">That's all ~~</div>
             </div>
         )
     };
