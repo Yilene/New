@@ -23,7 +23,7 @@ class TodoList extends React.Component{
         var todos;
         if(this.state.todos.length != 0){
             todos = this.state.todos.map((todo, index) => {
-                return (<div key={todo._id} className="item">
+                return (<div key={todo._id} className={'item ' + todo.type.toLowerCase()}>
                     <time>{formatTime(new Date(todo.time))}</time>
                     <p>{todo.content}</p>
                 </div>)
@@ -31,9 +31,7 @@ class TodoList extends React.Component{
         }
 
         var moodDes, moodNodes;
-        if(this.state.mood == ''){
-
-        }else if(this.state.mood == 3){
+        if(this.state.mood == 3){
             moodDes = <span className="mood-des">A exciting day!</span>;
             moodNodes = <div className="mood-record">
                 <a className="icon icon-love"> </a>
@@ -50,15 +48,15 @@ class TodoList extends React.Component{
                 {moodDes}
             </div>;
         }else if(this.state.mood == 1){
-            moodDes = <div className="mood-des">A dad day!</div>;
+            moodDes = <span className="mood-des">A dad day!</span>;
             moodNodes = <div className="mood-record">
                 <a className="icon icon-love"> </a>
                 <a className="icon icon-mood"> </a>
                 <a className="icon icon-mood"> </a>
                 {moodDes}
             </div>;
-        }else if(this.state.mood == 0){
-            moodDes = <div className="mood-des">How are you feeling today?</div>;
+        }else{
+            moodDes = <span className="mood-des">How are you feeling today?</span>;
             moodNodes = <div className="mood-record">
                 <a className="icon icon-mood"> </a>
                 <a className="icon icon-mood"> </a>

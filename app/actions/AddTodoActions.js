@@ -1,5 +1,6 @@
 import alt from '../alt';
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 
 class AddTodoActions {
     
@@ -15,7 +16,7 @@ class AddTodoActions {
         return (dispatch) => {
             axios.post('/api/daily/todo', { content: content, type: type, time: new Date, finish: false })
                 .then(function (response) {
-                    dispatch(response);
+                    browserHistory.push(`/todo/list`);
                 })
                 .catch(function (error) {
                     toastr.error(error);

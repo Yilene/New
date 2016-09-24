@@ -23,10 +23,6 @@ class AddTodoStore {
     onChangeType(type) {
         this.type = type;
     }
-
-    onSubmitTodo(data) {
-        console.log(data);
-    }
     
 }
 

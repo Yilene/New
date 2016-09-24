@@ -13,6 +13,11 @@ class AddTodo extends React.Component{
         AddTodoStore.listen(this.onChange);
     }
 
+    componentWillUnmount() {
+        AddTodoStore.unlisten(this.onChange);
+    }
+
+
     handleType(type) {
         AddTodoActions.changeType(type);
     }

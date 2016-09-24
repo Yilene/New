@@ -37,7 +37,22 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
+        background-color: $color-type-working;
+      }
+      &.work:before{
+        background-color: $color-type-working;
+      }
+      &.family:before{
         background-color: $color-type-family;
+      }
+      &.health:before{
+        background-color: $color-type-health;
+      }
+      &.shopping:before{
+        background-color: $color-type-shopping;
+      }
+      &.others:before{
+        background-color: $color-type-others;
       }
       time{
         font-size: 1.3rem;
