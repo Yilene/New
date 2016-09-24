@@ -1,21 +1,85 @@
 import React from 'react';
-import TodoUl from './partial/TodoUl'
+import TodoListActions from '../actions/TodoListActions';
+import TodoListStore from '../stores/TodoListStore';
+import {formatTime} from '../utils/dateUtils';
 
 class TodoList extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = TodoListStore.getState();
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(state) {
+        this.setState(state);
+    }
+
+    componentDidMount() {
+        TodoListStore.listen(this.onChange);
+        TodoListActions.getListData();
+    }
+
     render() {
+        var todos;
+        if(this.state.todos.length != 0){
+            todos = this.state.todos.map((todo, index) => {
+                return (<div key={todo._id} className="item">
+                    <time>{formatTime(new Date(todo.time))}</time>
+                    <p>{todo.content}</p>
+                </div>)
+            });
+        }
+
+        var moodDes, moodNodes;
+        if(this.state.mood == ''){
+
+        }else if(this.state.mood == 3){
+            moodDes = <span className="mood-des">A exciting day!</span>;
+            moodNodes = <div className="mood-record">
+                <a className="icon icon-love"> </a>
+                <a className="icon icon-love"> </a>
+                <a className="icon icon-love"> </a>
+                {moodDes}
+            </div>;
+        }else if(this.state.mood == 2){
+            moodDes = <span className="mood-des">A normal day!</span>;
+            moodNodes = <div className="mood-record">
+                <a className="icon icon-love"> </a>
+                <a className="icon icon-love"> </a>
+                <a className="icon icon-mood"> </a>
+                {moodDes}
+            </div>;
+        }else if(this.state.mood == 1){
+            moodDes = <div className="mood-des">A dad day!</div>;
+            moodNodes = <div className="mood-record">
+                <a className="icon icon-love"> </a>
+                <a className="icon icon-mood"> </a>
+                <a className="icon icon-mood"> </a>
+                {moodDes}
+            </div>;
+        }else if(this.state.mood == 0){
+            moodDes = <div className="mood-des">How are you feeling today?</div>;
+            moodNodes = <div className="mood-record">
+                <a className="icon icon-mood"> </a>
+                <a className="icon icon-mood"> </a>
+                <a className="icon icon-mood"> </a>
+                {moodDes}
+            </div>;
+        }
+
+        var record;
+        if(this.state.record == '' || this.state.record == undefined){
+            record = <p>Describe your day...</p>
+        }else{
+            record = <p>{this.state.record}</p>
+        }
+
         return (
             <div className="box">
-                <TodoUl />
+                <div className="list">{todos}</div>
                 <div className="record">
-                    <div className="mood-record">
-                        <span className="icon icon-love"> </span>
-                        <span className="icon icon-love"> </span>
-                        <span className="icon icon-love"> </span>
-                        <span className="mood-des">A exciting day!</span>
-                    </div>
-                    <p>
-                        Dear me, It's a great day,just be ready to go to the concert next Saturday,so exciting!
-                    </p>
+                    {moodNodes}
+                    {record}
                 </div>
             </div>
         )

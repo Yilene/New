@@ -1,5 +1,5 @@
 import React from 'react';
-import PlanUl from './partial/PlanUl';
+import PlanUl from './partial/Plans';
 
 class PlanList extends React.Component{
     render() {
