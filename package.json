@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "postinstall": "gulp build"
+    "postinstall": "bower install && gulp build"
   },
   "babel": {
     "presets": [
@@ -26,6 +26,7 @@
   "dependencies": {
     "alt": "^0.18.6",
     "async": "^1.5.0",
+    "axios": "^0.14.0",
     "body-parser": "^1.15.2",
     "colors": "^1.1.2",
     "compression": "^1.6.2",
@@ -49,7 +50,6 @@
     "babel-register": "^6.3.13",
     "babelify": "^7.2.0",
     "bower": "^1.6.5",
-    "browser-sync": "^2.16.0",
     "browserify": "^12.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
