@@ -35,18 +35,18 @@ class PlanList extends React.Component{
                     });
                 }
                 return (<Link to={"/plan/" + plan._id} key={plan._id} className="item">
-                    <time>{formatDateTime(new Date(plan.createTime))}</time>
-                    <p className="plan-des">{plan.content}</p>
-                    <div className="progress">
-                        <p>{plan.progress}%</p>
-                        <div className="progress-bar">
-                            <div className="rate" style={{width: plan.progress + "%"}}></div>
-                        </div>
-                    </div>
-                    <ul className="process">
-                        {processItem}
-                    </ul>
-                </Link>)
+                            <time>{formatDateTime(new Date(plan.createTime))}</time>
+                            <p className="plan-des">{plan.content}</p>
+                            <div className="progress">
+                                <p>{plan.progress}%</p>
+                                <div className="progress-bar">
+                                    <div className="rate" style={{width: plan.progress + "%"}}></div>
+                                </div>
+                            </div>
+                            <ul className="process">
+                                {processItem}
+                            </ul>
+                        </Link>)
             });
         }
 

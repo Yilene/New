@@ -3,7 +3,7 @@ import axios from 'axios';
 
 class HomeActions {
     
-    getDailyData() {
+    getDailyData(id) {
         return (dispatch) => {
             axios.get('/api/daily')
                 .then(function (response) {

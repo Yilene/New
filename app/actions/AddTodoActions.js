@@ -14,7 +14,7 @@ class AddTodoActions {
     
     submitTodo(content, type) {
         return (dispatch) => {
-            axios.post('/api/daily/todo', { content: content, type: type, time: new Date, finish: false })
+            axios.put('/api/daily/todo', { content: content, type: type, time: new Date, finish: false })
                 .then(function (response) {
                     browserHistory.push(`/todo/list`);
                 })

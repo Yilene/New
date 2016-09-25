@@ -35,7 +35,6 @@ class EditPlan extends React.Component{
 	}
 
 	handleRecord(event) {
-		console.log(event.target.innerHTML);
 		EditPlanActions.handleRecord(event.target.innerHTML);
 	}
 

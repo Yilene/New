@@ -2,16 +2,14 @@ import React from 'react';
 import TodoListActions from '../actions/TodoListActions';
 import TodoListStore from '../stores/TodoListStore';
 import {formatTime} from '../utils/dateUtils';
+import {browserHistory} from 'react-router';
+
 
 class TodoList extends React.Component{
     constructor(props) {
         super(props);
         this.state = TodoListStore.getState();
         this.onChange = this.onChange.bind(this);
-    }
-
-    onChange(state) {
-        this.setState(state);
     }
 
     componentDidMount() {
@@ -21,6 +19,14 @@ class TodoList extends React.Component{
 
     componentWillUnmount() {
         TodoListStore.unlisten(this.onChange);
+    }
+
+    onChange(state) {
+        this.setState(state);
+    }
+
+    onClickRecord() {
+        browserHistory.push('/todo/record/' + this.state._id);
     }
 
     render() {
@@ -79,7 +85,7 @@ class TodoList extends React.Component{
         return (
             <div className="box">
                 <div className="list">{todos}</div>
-                <div className="record">
+                <div onClick={this.onClickRecord.bind(this)} className="record">
                     {moodNodes}
                     {record}
                 </div>

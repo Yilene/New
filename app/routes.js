@@ -17,7 +17,7 @@ export default (
         <Route path='/todo' component={Todo} >
             <Route path='list' component={TodoList} />
             <Route path='add' component={AddTodo} />
-            <Route path='record' component={AddRecord} />
+            <Route path='record/:id' component={AddRecord} />
         </Route>
         <Route path='/plan' component={Plan} >
             <Route path='list' component={PlanList} />

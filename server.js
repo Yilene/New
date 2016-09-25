@@ -85,6 +85,19 @@ app.get('/api/daily', function (req, res, next) {
 });
 
 /**
+ * GET /api/daily:id
+ * Return the daily data by id
+ */
+app.get('/api/daily:id', function (req, res, next) {
+    Daily
+        .findById({ _id: req.params.id })
+        .exec(function (err, daily) {
+            if(err) return next(err);
+            res.send(daily);
+        })
+});
+
+/**
  * PUT /api/daily/mood
  * Return the daily data of today
  */
@@ -102,10 +115,26 @@ app.put('/api/daily/mood', function (req, res, next) {
 });
 
 /**
+ * PUT /api/daily/mood
+ * Return the daily data of today
+ */
+app.put('/api/daily/record', function (req, res, next) {
+    Daily.findById(req.body.id, function (err, daily) {
+        if(err) return next(err);
+        daily.mood = req.body.mood;
+        daily.record = req.body.record;
+        daily.save(function (err) {
+            if(err) return next(err);
+            res.send(daily);
+        })
+    });
+});
+
+/**
  * POST /api/daily/todo
  * Post the new item
  * */
-app.post('/api/daily/todo', function (req, res, next) {
+app.put('/api/daily/todo', function (req, res, next) {
     var date = new Date();
     Daily
         .findOne({ date: date.toDateString() })
