@@ -1,26 +1,58 @@
 import React from 'react';
+import AddPlanActions from '../../actions/AddPlanActions';
+import AddPlanStore from '../../stores/AddPlanStore';
 
 class AddPlan extends React.Component{
+	constructor(props) {
+		super(props);
+		this.state = AddPlanStore.getState();
+		this.onChange = this.onChange.bind(this);
+	}
+
+	componentDidMount() {
+		AddPlanStore.listen(this.onChange);
+	}
+
+	componentWillUnmount() {
+		AddPlanStore.unlisten(this.onChange);
+	}
+
+	onChange(state) {
+		this.setState(state);
+	}
+
+	handleContent(event) {
+		AddPlanActions.activeSubmit(event.target.innerHTML);
+	}
+
+	handleProgress(event) {
+		AddPlanActions.handleProgress(event.target.value);
+	}
+	
+	handleSubmit() {
+		var content = this.state.content;
+		if(content == ''){
+			alert("Please input some in the plan content!");
+		}else{
+			AddPlanActions.submitPlan(this.state.content, this.state.progress);
+		}
+	}
+
     render() {
         return (
             <div className="add">
-	            <form className="form form-plan" action="">
-	            	<time>10:10 Sep 22, 2016</time>
-	            	<p className="plan-des">Prepare for the final exam</p>
-	            	<p className="tip">Progress</p>
-	            	<div className="progress">
-						<span>0%</span>
-	            		<input className="rangeInput" type="range" min="0" max="100" defaultValue="0" />
-	            	</div>
-					<div contentEditable="true" className="edit-box">
-						Record...
+				<form className="form form-plan" action="">
+					<p className="tip">Your plan</p>
+					<div onKeyUp={this.handleContent.bind(this)} contentEditable="true" className="edit-box plan-edit">
 					</div>
-					<a className="submit"><span className="icon icon-tick"> </span></a>
-	            </form>
+					<p className="tip">Progress</p>
+					<div className="progress">
+						<span>{this.state.progress}%</span>
+						<input onChange={this.handleProgress.bind(this)} className="rangeInput" type="range" min="0" max="100" defaultValue="0" />
+					</div>
+					<a onClick={this.handleSubmit.bind(this)} className={(this.state.submit) ? "submit" : "submit off"}><span className="icon icon-tick"> </span></a>
+				</form>
 				<ul className="process">
-					<li>Start</li>
-					<li>Go to the library with Edison Zhang</li>
-					<li>Go to the library</li>
 				</ul>
             </div>
         );

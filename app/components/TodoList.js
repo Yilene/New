@@ -27,10 +27,10 @@ class TodoList extends React.Component{
         var todos;
         if(this.state.todos.length != 0){
             todos = this.state.todos.map((todo, index) => {
-                return (<div key={todo._id} className={'item ' + todo.type.toLowerCase()}>
-                    <time>{formatTime(new Date(todo.time))}</time>
-                    <p className={todo.finish? "finish" : "todo-content"}>{todo.content}</p>
-                </div>)
+                return (<div key={todo._id} className={'item ' + todo.type.toLowerCase() + (todo.finish? " finish" : "") }>
+                            <time>{formatTime(new Date(todo.time))}</time>
+                            <p className="todo-content">{todo.content}</p>
+                        </div>)
             });
         }
 
@@ -87,4 +87,5 @@ class TodoList extends React.Component{
         )
     };
 }
+
 export default TodoList;

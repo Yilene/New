@@ -64,8 +64,17 @@
         line-height: 2rem;
         font-size: 1.3rem;
         color: $color-font;
-        &.finish{
+
+      }
+      &.finish{
+        time{
+          display: none;
+        }
+        .todo-content{
           text-decoration: line-through;
+        }
+        &:before{
+          margin-top: 1.2rem;
         }
       }
     }

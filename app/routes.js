@@ -9,6 +9,7 @@ import PlanList from './components/PlanList';
 import AddTodo from './components/partial/AddTodo';
 import AddRecord from './components/partial/AddRecord';
 import AddPlan from './components/partial/AddPlan';
+import EditPlan from './components/partial/EditPlan';
 
 export default (
     <Route component={App}>
@@ -21,6 +22,7 @@ export default (
         <Route path='/plan' component={Plan} >
             <Route path='list' component={PlanList} />
             <Route path='add' component={AddPlan} />
+            <Route path=':id' component={EditPlan} />
         </Route>
     </Route>
 );

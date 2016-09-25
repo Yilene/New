@@ -21,6 +21,7 @@ var _ = require('underscore');
 var config = require('./config');
 var routes = require('./app/routes');
 var Daily = require('./models/daily');
+var Plan = require('./models/plan');
 
 var app = express();
 
@@ -52,7 +53,8 @@ app.post('/api/daily', function (req, res, next) {
             if(daily.length == 0){
                 var today = new Daily({
                     date: date.toDateString(),
-                    inspire: "A new day, a new goal"
+                    inspire: "A new day, a new goal",
+                    todos: []
                 });
                 today.save(function (err) {
                     if(err) return(err);
@@ -101,9 +103,9 @@ app.put('/api/daily/mood', function (req, res, next) {
 
 /**
  * POST /api/daily/todo
- * Post the todo data
+ * Post the new item
  * */
-app.post('/api/daily/todo', function (req, res,next) {
+app.post('/api/daily/todo', function (req, res, next) {
     var date = new Date();
     Daily
         .findOne({ date: date.toDateString() })
@@ -116,6 +118,75 @@ app.post('/api/daily/todo', function (req, res,next) {
             })
         })
 });
+
+/**
+ * GET /api/plans
+ * Get the plan list
+ * */
+app.get('/api/plans', function (req, res, next) {
+    Plan
+        .find({ finish: false}).sort('-_id')
+        .exec(function (err, plans) {
+            if(err) return next(err);
+            res.send(plans);
+        })
+});
+
+/**
+ * GET /api/plan:id
+ * Get the plan data by id
+ * */
+app.get('/api/plan:id', function (req, res, next) {
+    Plan
+        .findById(req.params.id)
+        .exec(function (err, plan) {
+            if(err) return next(err);
+            res.send(plan);
+        })
+});
+
+/**
+ * POST /api/plan
+ * Post the new plan data item
+ * */
+app.post('/api/plan', function (req, res, next) {
+    var plan = new Plan({
+        createTime: new Date,
+        content: req.body.content,
+        progress: req.body.progress,
+        finish: false,
+        process: []
+    });
+    plan.save(function (err) {
+        if (err) return next(err);
+        res.send(200, 'Add plan success');
+    });
+});
+
+/**
+ * PUT /api/plan
+ * update the plan data
+ * */
+app.put('/api/plan', function (req, res, next) {
+    Plan
+        .findById(req.body.id)
+        .exec(function (err, plan) {
+            if(err) return next(err);
+            plan.progress = req.body.progress;
+            if(req.body.progress == 100){
+                plan.finish = true;
+            }
+            if(req.body.record != ''){
+                plan.process.push({ time: new Date(), content: req.body.record });
+            }
+            plan.save(function (err) {
+                if(err) return next(err);
+                res.send(plan);
+            })
+        })
+});
+
+
 
 app.use(function(req, res) {
     Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {

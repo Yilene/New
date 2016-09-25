@@ -6,9 +6,10 @@ var Item = new mongoose.Schema({
 });
 
 var _Plan = new mongoose.Schema({
-    createtime: Date,
+    createTime: Date,
     content: String,
     progress: Number,
+    finish: Boolean,
     process: [Item]
 });
 

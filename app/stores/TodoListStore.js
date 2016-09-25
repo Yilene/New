@@ -18,7 +18,6 @@ class TodoListStore {
             this._id = data.data._id;
         }
     }
-    
 }
 
 export default alt.createStore(TodoListStore);

@@ -3,16 +3,23 @@
     color: $color-font-third;
   }
   .plan-des{
-    margin: 1rem 0 3rem;
+    margin: 1.8rem 0 3rem;
+    padding: 0.6rem 0;
     font-size: 1.4rem;
   }
   .tip{
     font-weight: 200;
     color: $color-font-third;
   }
+  .plan-edit{
+    margin: 1rem 0 4rem;
+  }
+  .edit-box{
+    margin: 1rem 0 4rem;
+  }
 }
 .progress{
-  margin-top: 1.8rem;
+  margin: 1.8rem 0 4rem;
   .rangeInput{
     display: block;
     width: 100%;
