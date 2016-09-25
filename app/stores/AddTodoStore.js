@@ -3,10 +3,7 @@ import AddTodoActions from '../actions/AddTodoActions';
 
 class AddTodoStore {
     constructor() {
-        this.date = new Date();
-        this._id = '';
         this.type = 'Work';
-        this.content = '';
         this.submit = false;
         this.bindActions(AddTodoActions);
     }

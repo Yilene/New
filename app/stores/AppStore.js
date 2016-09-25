@@ -3,7 +3,6 @@ import AppActions from '../actions/AppActions';
 
 class AppStore {
     constructor() {
-        this._id = '';
         this.bindActions(AppActions);
     }
     

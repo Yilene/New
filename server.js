@@ -180,7 +180,7 @@ app.get('/api/plan:id', function (req, res, next) {
  * */
 app.post('/api/plan', function (req, res, next) {
     var plan = new Plan({
-        createTime: new Date,
+        createTime: new Date(),
         content: req.body.content,
         progress: req.body.progress,
         finish: false,

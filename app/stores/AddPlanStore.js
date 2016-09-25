@@ -3,12 +3,7 @@ import AddPlanActions from '../actions/AddPlanActions';
 
 class AddPlanStore {
     constructor() {
-        this.createTime = new Date();
-        this._id = '';
         this.progress = 0;
-        this.content = '';
-        this.finish = false;
-        this.process = [];
         this.submit = false;
         this.bindActions(AddPlanActions);
     }

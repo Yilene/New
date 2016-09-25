@@ -3,13 +3,9 @@ import EditPlanActions from '../actions/EditPlanActions';
 
 class EditPlanStore {
     constructor() {
-        this.createTime = new Date();
-        this._id = '';
         this.progress = 0;
         this.newProgress = 0;
-        this.finish = false;
         this.process = [];
-        this.record = '';
         this.submit = false;
         this.bindActions(EditPlanActions);
     }
@@ -38,6 +34,10 @@ class EditPlanStore {
     onHandleProgress(progress){
         this.newProgress = progress;
         this.submit = ((this.newProgress != this.progress) || (this.record != ''));
+    }
+
+    onClearData() {
+        this.record = '';
     }
     
 }

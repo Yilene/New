@@ -4,7 +4,6 @@ import AddRecordActions from '../actions/AddRecordActions';
 class AddRecordStore {
     constructor() {
         this._id = '';
-        this.record = '';
         this.mood = 0;
         this.bindActions(AddRecordActions);
     }
@@ -28,9 +27,7 @@ class AddRecordStore {
     }
 
     onGetDailyData(data) {
-        console.log(data);
         this._id = data.data._id;
-        this.record = data.data.record;
         this.mood = data.data.mood;
     }
     

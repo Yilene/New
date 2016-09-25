@@ -3,6 +3,11 @@ import axios from 'axios';
 import {browserHistory} from 'react-router';
 
 class AddTodoActions {
+    constructor() {
+        this.generateActions(
+            'clearData'
+        );
+    }
 
     handleRecord(record) {
         return record;
@@ -35,8 +40,6 @@ class AddTodoActions {
                 });
         }
     }
-    
-    
 }
 
 export default alt.createActions(AddTodoActions);
