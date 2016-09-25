@@ -19,13 +19,17 @@ class TodoList extends React.Component{
         TodoListActions.getListData();
     }
 
+    componentWillUnmount() {
+        TodoListStore.unlisten(this.onChange);
+    }
+
     render() {
         var todos;
         if(this.state.todos.length != 0){
             todos = this.state.todos.map((todo, index) => {
                 return (<div key={todo._id} className={'item ' + todo.type.toLowerCase()}>
                     <time>{formatTime(new Date(todo.time))}</time>
-                    <p>{todo.content}</p>
+                    <p className={todo.finish? "finish" : "todo-content"}>{todo.content}</p>
                 </div>)
             });
         }

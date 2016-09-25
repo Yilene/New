@@ -17,7 +17,6 @@ class AddTodo extends React.Component{
         AddTodoStore.unlisten(this.onChange);
     }
 
-
     handleType(type) {
         AddTodoActions.changeType(type);
     }

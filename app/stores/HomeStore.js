@@ -5,7 +5,7 @@ class HomeStore {
     constructor() {
         this.date = new Date();
         this._id = '';
-        this.mood = '';
+        this.mood = 0;
         this.inspire = 'A new day, a new goal';
         this.todos = [];
         this.record = '';
@@ -16,7 +16,7 @@ class HomeStore {
     onGetDailyData(data) {
         if(data.status == 200){
             this._id = data.data._id;
-            this.mood = Number(data.data.mood);
+            this.mood = data.data.mood;
             this.inspire = data.data.inspire == ''|| undefined ? this.inspire: data.data.inspire;
             this.todos = data.data.todos;
             this.record = data.data.record ==  undefined ? '':data.data.record;

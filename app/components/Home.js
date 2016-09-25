@@ -32,8 +32,7 @@ class Home extends React.Component {
     
     render() {
         var moodDes, moodNodes,interact;
-        if(this.state.mood == ''){
-
+        if(this.state._id == ''){
         }else if(this.state.mood == 3){
             moodDes = "A exciting day!";
             moodNodes = <div className="mood-des">
@@ -58,11 +57,12 @@ class Home extends React.Component {
         }else if(this.state.mood == 0){
             moodDes = "How are you feeling today?";
             moodNodes = <div className="mood-des">
-                            <a onClick={this.handleMood.bind(this, 1, this.state._id)} className="icon icon-mood"> </a>
-                            <a onClick={this.handleMood.bind(this, 2, this.state._id)} className="icon icon-mood"> </a>
-                            <a onClick={this.handleMood.bind(this, 3, this.state._id)} className="icon icon-mood"> </a>
-                        </div>;
+                <a onClick={this.handleMood.bind(this, 1, this.state._id)} className="icon icon-mood"> </a>
+                <a onClick={this.handleMood.bind(this, 2, this.state._id)} className="icon icon-mood"> </a>
+                <a onClick={this.handleMood.bind(this, 3, this.state._id)} className="icon icon-mood"> </a>
+            </div>;
         }
+        
         if(this.state._id == ''){
 
         }else if(this.state.record != ''){
@@ -78,8 +78,10 @@ class Home extends React.Component {
         }else if(this.state.todos.length != 0){
             var list;
             list = this.state.todos.map((todo, index) => {
-                if(!todo.finish){
-                    return <li key={todo._id} className="todo-item">{todo.content}</li>
+                if(index < 2){
+                    if(!todo.finish){
+                        return <li key={todo._id} className="todo-item">{todo.content}</li>
+                    }
                 }
             });
             interact = <div className="list">
