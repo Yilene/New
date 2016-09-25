@@ -8,7 +8,7 @@ class Plan extends React.Component {
                 <header className="top">
                     <Link to="/todo/list" className="bar-link"><span className="icon icon-daily"> </span></Link>
                     <Link to="/plan/add" className="bar-link"><span className="icon icon-add"> </span></Link>
-                    <h1>Planing</h1>
+                    <Link to="/plan/list"><h1>Planing</h1></Link>
                 </header>
                 <div className="content">
                     {this.props.children}

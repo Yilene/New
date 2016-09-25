@@ -9,7 +9,6 @@ class PlanListStore {
 
     onGetPlanList(data) {
         if(data.status == 200){
-            console.log(data);
             this.plans = data.data;
         }
     }

@@ -9,7 +9,7 @@ class Todo extends React.Component {
                 <header className="top">
                     <Link to="/plan/list" className="bar-link"><span className="icon icon-plan"> </span></Link>
                     <Link to="/todo/add" className="bar-link"><span className="icon icon-add"> </span></Link>
-                    <h1>{getEngDate(new Date())}</h1>
+                    <Link to="/"><h1>{getEngDate(new Date())}</h1></Link>
                 </header>
                 <div className="content">
                     {this.props.children}
