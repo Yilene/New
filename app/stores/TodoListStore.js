@@ -12,7 +12,7 @@ class TodoListStore {
     
     onGetListData(data) {
         if(data.status == 200){
-            this.todos = data.data.todos;
+            this.todos = data.data.todos.reverse();
             this.record = data.data.record;
             this.mood = data.data.mood;
             this._id = data.data._id;
