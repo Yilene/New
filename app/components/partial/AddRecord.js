@@ -39,35 +39,34 @@ class AddRecord extends React.Component{
     render() {
         var moods,moodDes;
         
-        if(this.state._id == ''){
-        
-        }else{
+        if(this.state._id != '') {
             var moodArray = [];
-            for(let i = 0; i < 3; i++){
-                if(i < this.state.mood){
+            for (let i = 0; i < 3; i++) {
+                if (i < this.state.mood) {
                     moodArray.push({love: true});
-                }else{
+                } else {
                     moodArray.push({love: false});
                 }
             }
+            var that = this;
             moods = moodArray.map(function (mood, index) {
-                return <a key={index} className={mood.love ? "icon icon-love" : "icon icon-mood"}> </a>
+                return <a onClick={that.handleMood.bind(that, index + 1, that.state._id)} key={index}
+                          className={mood.love ? "icon icon-love" : "icon icon-mood"}> </a>
             });
-        }
-
-        switch(this.state.mood) {
-            case 0:
-                moodDes = <p>How are you feeling today?</p>;
-                break;
-            case 1:
-                moodDes = <p>A bad day!</p>;
-                break;
-            case 2:
-                moodDes = <p>A normal day!</p>;
-                break;
-            case 3:
-                moodDes = <p>A exciting day!</p>;
-                break;
+            switch (this.state.mood) {
+                case 0:
+                    moodDes = <p>How are you feeling today?</p>;
+                    break;
+                case 1:
+                    moodDes = <p>A bad day!</p>;
+                    break;
+                case 2:
+                    moodDes = <p>A normal day!</p>;
+                    break;
+                case 3:
+                    moodDes = <p>A exciting day!</p>;
+                    break;
+            }
         }
 
         return (

@@ -33,34 +33,34 @@ class Home extends React.Component {
     render() {
         var moodDes, moodNodes,interact;
         if(this.state._id == ''){
-        }else if(this.state.mood == 3){
-            moodDes = "A exciting day!";
-            moodNodes = <div className="mood-des">
-                            <a onClick={this.handleMood.bind(this, 1, this.state._id)} className="icon icon-love"> </a>
-                            <a onClick={this.handleMood.bind(this, 2, this.state._id)} className="icon icon-love"> </a>
-                            <a onClick={this.handleMood.bind(this, 3, this.state._id)} className="icon icon-love"> </a>
-                        </div>;
-        }else if(this.state.mood == 2){
-            moodDes = "A normal day!";
-            moodNodes = <div className="mood-des">
-                            <a onClick={this.handleMood.bind(this, 1, this.state._id)} className="icon icon-love"> </a>
-                            <a onClick={this.handleMood.bind(this, 2, this.state._id)} className="icon icon-love"> </a>
-                            <a onClick={this.handleMood.bind(this, 3, this.state._id)} className="icon icon-mood"> </a>
-                        </div>;
-        }else if(this.state.mood == 1){
-            moodDes = "A dad day!";
-            moodNodes = <div className="mood-des">
-                            <a onClick={this.handleMood.bind(this, 1, this.state._id)} className="icon icon-love"> </a>
-                            <a onClick={this.handleMood.bind(this, 2, this.state._id)} className="icon icon-mood"> </a>
-                            <a onClick={this.handleMood.bind(this, 3, this.state._id)} className="icon icon-mood"> </a>
-                        </div>;
-        }else if(this.state.mood == 0){
-            moodDes = "How are you feeling today?";
-            moodNodes = <div className="mood-des">
-                <a onClick={this.handleMood.bind(this, 1, this.state._id)} className="icon icon-mood"> </a>
-                <a onClick={this.handleMood.bind(this, 2, this.state._id)} className="icon icon-mood"> </a>
-                <a onClick={this.handleMood.bind(this, 3, this.state._id)} className="icon icon-mood"> </a>
-            </div>;
+        }else{
+            var moodArray = [];
+            for(let i = 0; i < 3; i++){
+                if(i < this.state.mood){
+                    moodArray.push({love: true});
+                }else{
+                    moodArray.push({love: false});
+                }
+            }
+            var that = this;
+            moodNodes = moodArray.map(function (mood, index) {
+                return <a onClick={that.handleMood.bind(that, index + 1, that.state._id)} key={index} className={mood.love ? "icon icon-love" : "icon icon-mood"}> </a>
+            });
+
+            switch(this.state.mood) {
+                case 0:
+                    moodDes = <p>How are you feeling today?</p>;
+                    break;
+                case 1:
+                    moodDes = <p>A bad day!</p>;
+                    break;
+                case 2:
+                    moodDes = <p>A normal day!</p>;
+                    break;
+                case 3:
+                    moodDes = <p>A exciting day!</p>;
+                    break;
+            }
         }
         
         if(this.state._id == ''){
@@ -105,7 +105,9 @@ class Home extends React.Component {
                 </div>
                 <div className="mood">
                     <p>{moodDes}</p>
-                    {moodNodes}
+                    <div className="mood-des">
+                        {moodNodes}
+                    </div>
                 </div>
                 <div className="interact">
                     {interact}

@@ -9,7 +9,7 @@ class PlanListActions {
                     dispatch(response);
                 })
                 .catch(function (error) {
-                    alert(error);
+                    console.log(error);
                 });
         }
     }

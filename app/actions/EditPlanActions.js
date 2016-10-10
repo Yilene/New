@@ -24,7 +24,7 @@ class AddTodoActions {
                     dispatch(response);
                 })
                 .catch(function (err) {
-                    alert(err);
+                    console.log(err);
                 });
         }
     }
@@ -36,7 +36,7 @@ class AddTodoActions {
                     browserHistory.push(`/plan/list`);
                 })
                 .catch(function (error) {
-                    alert(error);
+                    console.log(error);
                 });
         }
     }

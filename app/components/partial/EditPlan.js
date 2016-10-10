@@ -28,8 +28,6 @@ class EditPlan extends React.Component{
 	}
 	
 	handleSubmit() {
-		alert(this.state.record);
-
 		if((this.state.newProgress != this.state.progress) || (this.state.record != '')){
 			EditPlanActions.submitPlan(this.state.newProgress, this.state.record, this.state._id);
 		}else{

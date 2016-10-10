@@ -3,7 +3,6 @@ import AddRecordActions from '../actions/AddRecordActions';
 
 class AddRecordStore {
     constructor() {
-        this._id = '';
         this.mood = 0;
         this.bindActions(AddRecordActions);
     }
