@@ -27,20 +27,6 @@ var dependencies = [
 
 /*
  |--------------------------------------------------------------------------
- | Combine all JS libraries into a single file for fewer HTTP requests.
- |--------------------------------------------------------------------------
- */
-gulp.task('vendor', function() {
-    return gulp.src([
-        'bower_components/zepto/zepto.js',
-        'bower_components/toastr/toastr.js',
-    ]).pipe(concat('vendor.js'))
-        .pipe(gulpif(production, uglify({ mangle: false })))
-        .pipe(gulp.dest('public/js'));
-});
-
-/*
- |--------------------------------------------------------------------------
  | Compile third-party dependencies separately for faster performance.
  |--------------------------------------------------------------------------
  */
@@ -119,5 +105,5 @@ gulp.task('watch', function() {
     gulp.watch('app/stylesheets/**/*.scss', ['styles']);
 });
 
-gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
-gulp.task('build', ['styles', 'vendor', 'browserify']);
+gulp.task('default', ['styles', 'browserify-watch', 'watch']);
+gulp.task('build', ['styles', 'browserify']);

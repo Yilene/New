@@ -3,8 +3,6 @@ import EditPlanActions from '../actions/EditPlanActions';
 
 class EditPlanStore {
     constructor() {
-        this.progress = 0;
-        this.newProgress = 0;
         this.process = [];
         this.submit = false;
         this.bindActions(EditPlanActions);

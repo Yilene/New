@@ -104,7 +104,7 @@ class Home extends React.Component {
                     <p>{this.state.inspire}</p>
                 </div>
                 <div className="mood">
-                    <p>{moodDes}</p>
+                    {moodDes}
                     <div className="mood-des">
                         {moodNodes}
                     </div>

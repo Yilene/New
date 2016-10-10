@@ -53,8 +53,8 @@ class EditPlan extends React.Component{
 					<p className="plan-des">{this.state.content}</p>
 					<p className="tip">Progress</p>
 					<div className="progress">
-						<span>{this.state.newProgress}%</span>
-						<input onChange={this.handleProgress.bind(this)} className="rangeInput" type="range" min="0" max="100" defaultValue={'"' + this.state.progress + '"'} />
+						<span>{this.state.newProgress?this.state.newProgress:0}%</span>
+						<input onChange={this.handleProgress.bind(this)} className="rangeInput" type="range" min="0" max="100" value={this.state.newProgress?this.state.newProgress:0} />
 					</div>
 					<p className="tip">Your record</p>
 					<div onKeyUp={this.handleRecord.bind(this)} contentEditable="true" className="edit-box"></div>

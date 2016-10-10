@@ -10,7 +10,7 @@ class AppActions {
                     dispatch(response);
                 })
                 .catch(function (error) {
-                    toastr.error(error);
+                    console.log(error);
                 });
         }
     }

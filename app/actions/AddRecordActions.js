@@ -31,7 +31,7 @@ class AddRecordActions {
                     browserHistory.push('/todo/list');
                 })
                 .catch(function (error) {
-                    toastr.error(error);
+                    console.log(error);
                 });
         }
     }

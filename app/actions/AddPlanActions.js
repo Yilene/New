@@ -19,7 +19,7 @@ class AddTodoActions {
                     browserHistory.push(`/plan/list`);
                 })
                 .catch(function (error) {
-                    toastr.error(error);
+                    console.log(error);
                 });
         }
     }
